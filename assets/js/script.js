@@ -32,15 +32,6 @@ var taskFormHandler = function() {
             };
             createTaskEl(taskDataObj);
         }
-    
-
-    //package up data as an object
-    var taskDataObj = {
-        name: taskNameInput,
-        type: taskTypeInput
-    }
-    //send it as an argument to creatTaskEl
-    createTaskEl(taskDataObj);
 };
 
 var completeEditTask = function(taskName, taskType, taskId) {
@@ -93,7 +84,6 @@ var createTaskEl = function(taskDataObj) {
     tasksToDoEl.appendChild(listItemEl);
     
     //add entire list item to list
-    tasksToDoEl.appendChild(listItemEl);
     tasks.push(taskDataObj);
     saveTasks();
     taskIdCounter++;
@@ -307,7 +297,7 @@ var loadTasks = function(tasks) {
 
         if (tasks[i].status === 'to do') {
             listItemEl.querySelector("select[name='status-change']").selectedIndex = 0;
-            tasksToDoEl.appendChild();listItemEl
+            tasksToDoEl.appendChild(listItemEl);
         }
         else if (tasks[i].status === 'in progress') {
             listItemEl.querySelector("select[name='status-change']").selectedIndex = 1;
